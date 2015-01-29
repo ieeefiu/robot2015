@@ -1,3 +1,5 @@
+// some garbage comment
+
 int colors[100];
 int possition = 0;
 int photo1 = 0;
