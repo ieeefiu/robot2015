@@ -163,7 +163,7 @@ uint16_t Sensors::read() {
 		then a binary 1 is written. In all other case a binary
 		0 is written.	
 	*/
-uint8_t readBit() {
+uint8_t Sensor::readBit() {
 	this->read();
 
 	return this->bit;
