@@ -75,7 +75,7 @@ uint8_t Sensor::attach(uint8_t pin, uint8_t emitterPin) {
 	/*	digitalWrite() can only be called on pins 0-19.
 			avoids using Sensor pin as emitterPin		
 	*/
-	if(emitterPin < 0 || emitterPin > 20 || emitterPin == this->pin) {
+	if(emitterPin < 0 || emitterPin > 19 || emitterPin == this->pin) {
 		this->emitterPin = NULL;
 		return 1;
 	}
