@@ -41,6 +41,4 @@ If `val` read is above `threshold` returns 1, else 0 of type `uint8_t`.
 
 ### `getThreshold()`
 Returns `uint16_t threshold`
-
 ### `getVal()`
-Returns `uint16_t val`
