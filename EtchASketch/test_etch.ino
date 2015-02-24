@@ -16,8 +16,8 @@ void loop()
     delay(1000);
     etch.backward(10);
     delay(1000);
-    etch.up(10);
-    delay(1000);
-    etch.down(10);
-    delay(1000);
+    /* etch.up(10); */
+    /* delay(1000); */
+    /* etch.down(10); */
+    /* delay(1000); */
 }

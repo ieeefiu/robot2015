@@ -14,7 +14,7 @@
 // please adjust this!
 // this value will be multiplied by a variable to provide a delay
 // that will keep the servo running for whatever distance
-#define DELAYCONSTANT 500
+#define DELAYCONSTANT 5
 
 class EtchASketch
 {
