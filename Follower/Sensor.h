@@ -43,9 +43,4 @@ public:
 	uint16_t getVal();
 };
 
-/*	Precondition: Sensors in "sensors" array have been calibrated.
-	Postcondition: Writes binary state of the nth sensor in "sensor" array
-	to the nth bit of "sensorBinary" and returns it.
-*/
-
 #endif

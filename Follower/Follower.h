@@ -41,8 +41,11 @@ uint8_t lineFollower(Servo* servos, Sensor* sensors, uint8_t numSensors) {
 			uint16_t lastError = 0;
 			uint16_t thisError = 0;
 			uint16_t delta = 0;
-				
+			
+			// read sensors on right half of array				
 			uint16_t rightAnalog = readSensorsAnalog(sensors, (uint8_t) (numSensors / 2));
+			
+			// read sensors on left half of array
 			uint16_t leftAnalog = readSensorsAnalog(sensors + (uint8_t) (numSensors / 2), (uint8_t) (numSensors / 2));
 			
 			thisError = leftAnalog - rightAnalog;
@@ -91,6 +94,10 @@ uint8_t readSensorsBinary(Sensor* sensors, uint8_t numSensors) {
 
 	return sensorBinary;
 }
+
+/*	Precondition: Sensors in "sensors" array have been calibrated.
+	Postcondition: Returns sum of all sensor readings up to "numSensors" 
+*/
 
 uint16_t readSensorsAnalog(Sensor* sensors, uint8_t numSensors) {
 	uint16_t sensorAnalog = 0;
