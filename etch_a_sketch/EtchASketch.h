@@ -21,11 +21,14 @@ class EtchASketch
 private:
     Servo left_knob;
     Servo right_knob;
-    int position[2];
+    unsigned int pos_x;
+    unsigned int pos_y;
     void moveForward(int);
     void moveBackward(int);
     void moveUp(int);
     void moveDown(int);
+    int getX();
+    int getY();
 public:
     EtchASketch(int,int,int,int);
     void forward(int);

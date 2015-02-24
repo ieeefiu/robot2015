@@ -8,8 +8,8 @@ EtchASketch::EtchASketch(int a, int b, int x, int y)
     left_knob.attach(a);
     right_knob.attach(b);
     // set initial position
-    position[0] = x;
-    position[1] = y;
+    pos_x = x;
+    pos_y = y;
     // set servos to whatever value works for not moving
     // it's supposed to be 90 but i'm using cheap servos
     // please adjust this to whatever your servos are happy with
@@ -61,10 +61,21 @@ void EtchASketch::moveDown(int a)
     right_knob.write(STOP);
 }
 
+int EtchASketch::getX()
+{
+    return pos_x;
+}
+
+int EtchASketch::getY()
+{
+    return pos_y;
+}
+
 void EtchASketch::forward(int a)
 {
     // takes a number in millimeters
     // will need to adjust for whatever your servo is happy with
+    // TODO: have this check to see if it's going to move past the boundaries
     moveForward(a);
 }
 
@@ -72,6 +83,7 @@ void EtchASketch::backward(int a)
 {
     // takes a number in millimeters
     // will need to adjust for whatever your servo is happy with
+    // TODO: have this check to see if it's going to move past the boundaries
     moveBackward(a);
 }
 
@@ -79,6 +91,7 @@ void EtchASketch::up(int a)
 {
     // takes a number in millimeters
     // will need to adjust for whatever your servo is happy with
+    // TODO: have this check to see if it's going to move past the boundaries
     moveUp(a);
 }
 
@@ -86,5 +99,6 @@ void EtchASketch::down(int a)
 {
     // takes a number in millimeters
     // will need to adjust for whatever your servo is happy with
+    // TODO: have this check to see if it's going to move past the boundaries
     moveDown(a);
 }
