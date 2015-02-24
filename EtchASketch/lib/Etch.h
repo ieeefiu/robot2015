@@ -1,5 +1,5 @@
-#ifndef EtchASketch_h
-#define EtchASketch_h
+#ifndef Etch_h
+#define Etch_h
 
 #include <Arduino.h>
 #include <Servo.h>
@@ -16,7 +16,7 @@
 // that will keep the servo running for whatever distance
 #define DELAYCONSTANT 5
 
-class EtchASketch
+class Etch
 {
 private:
     Servo left_knob;
@@ -30,7 +30,7 @@ private:
     int getX();
     int getY();
 public:
-    EtchASketch(int,int,int,int);
+    Etch(int,int,int,int);
     void forward(int);
     void backward(int);
     void up(int);

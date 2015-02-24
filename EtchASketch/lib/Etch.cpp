@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include <Servo.h>
-#include "EtchASketch.h"
+#include "Etch.h"
 
-EtchASketch::EtchASketch(int a, int b, int x, int y)
+Etch::Etch(int a, int b, int x, int y)
 {
     // set pin values for servos
     left_knob.attach(a);
@@ -28,7 +28,7 @@ void EtchASketch::moveForward(int a)
     left_knob.writeMicroseconds(STOP);
 }
 
-void EtchASketch::moveBackward(int a)
+void Etch::moveBackward(int a)
 {
     // tell left knob to move backward
     left_knob.write(COUNTER_CLOCKWISE);
@@ -39,7 +39,7 @@ void EtchASketch::moveBackward(int a)
     left_knob.writeMicroseconds(STOP);
 }
 
-void EtchASketch::moveUp(int a)
+void Etch::moveUp(int a)
 {
     // tell right knob to move up
     right_knob.write(COUNTER_CLOCKWISE);
@@ -50,7 +50,7 @@ void EtchASketch::moveUp(int a)
     right_knob.writeMicroseconds(STOP);
 }
 
-void EtchASketch::moveDown(int a)
+void Etch::moveDown(int a)
 {
     // tell right knob to move down
     right_knob.write(CLOCKWISE);
@@ -61,17 +61,17 @@ void EtchASketch::moveDown(int a)
     right_knob.writeMicroseconds(STOP);
 }
 
-int EtchASketch::getX()
+int Etch::getX()
 {
     return pos_x;
 }
 
-int EtchASketch::getY()
+int Etch::getY()
 {
     return pos_y;
 }
 
-void EtchASketch::forward(int a)
+void Etch::forward(int a)
 {
     // takes a number in millimeters
     // will need to adjust for whatever your servo is happy with
@@ -79,7 +79,7 @@ void EtchASketch::forward(int a)
     moveForward(a);
 }
 
-void EtchASketch::backward(int a)
+void Etch::backward(int a)
 {
     // takes a number in millimeters
     // will need to adjust for whatever your servo is happy with
@@ -87,7 +87,7 @@ void EtchASketch::backward(int a)
     moveBackward(a);
 }
 
-void EtchASketch::up(int a)
+void Etch::up(int a)
 {
     // takes a number in millimeters
     // will need to adjust for whatever your servo is happy with
@@ -95,7 +95,7 @@ void EtchASketch::up(int a)
     moveUp(a);
 }
 
-void EtchASketch::down(int a)
+void Etch::down(int a)
 {
     // takes a number in millimeters
     // will need to adjust for whatever your servo is happy with

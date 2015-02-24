@@ -1,8 +1,8 @@
 #include <Servo.h>
-#include "EtchASketch.h"
+#include "Etch.h"
 
 // make a new etch-a-sketch with pins at 38 and 39 and position 0, 0
-EtchASketch etch(A0, A1, 0, 0);
+Etch etch(A0, A1, 0, 0);
 
 void setup()
 {
