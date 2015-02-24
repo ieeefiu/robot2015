@@ -15,7 +15,7 @@ some notes
 ----------
 
 - knobs are continuous motion servos
-- the constants in EtchASketch.h are defined for the servos i have at home, which are [these](http://www.amazon.com/gp/product/B00KA393PK/ref=oh_aui_detailpage_o00_s00) modified to be continuous motion. they're cheap so the numbers might be off
+- the constants in EtchASketch.h are defined for the servos i have at home, which are [these](http://www.amazon.com/gp/product/B00KA393PK/ref=oh_aui_detailpage_o00_s00) modified to be continuous motion. they're cheap so it's not working like i want it to
 - before using this, test and modify the constants to work properly with whatever servos you are actually using
 
 how do i
@@ -35,3 +35,4 @@ to-do list
 
 - add a check to see if the cursor is going to move out of bounds
 - get some servos that aren't made of garbage
+- actually make this thing work on an etch-a-sketch
