@@ -17,7 +17,7 @@ Etch::Etch(int a, int b, int x, int y)
     right_knob.writeMicroseconds(STOP);
 }
 
-void EtchASketch::moveForward(int a)
+void Etch::moveForward(int a)
 {
     // tell left knob to move forward
     left_knob.write(CLOCKWISE);
