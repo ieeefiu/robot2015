@@ -57,22 +57,22 @@ uint8_t lineFollower(Servo* servos, Sensor* sensors, uint8_t numSensors) {
 
 uint16_t setServos(Servo* servos, uint8_t direction, uint16_t delta) {
 	switch(direction) {
-	case left:
-		servos[right].write(10);	
-		servos[left].write(90);
-		break;
-
-	case right:
-		servos[right].write(90);	
-		servos[left].write(170);
-		break;
-
-	case straight:
-		servos[right].write(45 - delta);
-		servos[left].write(135 - delta);
-		break;
-
-	default:
-		break;
+		case left: {
+			servos[right].write(10);	
+			servos[left].write(90);
+			break;
+		}
+		case right: {
+			servos[right].write(90);	
+			servos[left].write(170);
+			break;
+		}
+		case straight: {
+			servos[right].write(45 - delta);
+			servos[left].write(135 - delta);
+			break;
+		}
+		default:
+			break;
 	}
 }
