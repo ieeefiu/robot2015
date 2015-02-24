@@ -90,7 +90,7 @@ uint16_t setServos(Servo* servos, uint8_t direction, uint16_t delta) {
 uint8_t readSensorsBinary(Sensor* sensors, uint8_t numSensors) {
 	uint8_t sensorBinary = B00000000;
 	for(uint8_t i = 0; i < numSensors; i++) {
-		sensor[i].read();
+		sensor[i].read()
 		bitWrite(sensorBinary, i, sensors[i].getBit());
 	}
 
