@@ -6,6 +6,8 @@
 #define right 1
 #define straight 0
 
+uint8_t readSensorsBinary(Sensor*, uint8_t);
+uint16_t readSensorsAnalog(Sensor*, uint8_t);
 uint16_t setServos(Servo*, uint8_t, uint16_t);
 
 uint8_t lineFollower(Servo* servos, Sensor* sensors, uint8_t numSensors) {
@@ -75,4 +77,25 @@ uint16_t setServos(Servo* servos, uint8_t direction, uint16_t delta) {
 		default:
 			break;
 	}
+}
+
+/*	Precondition: Sensors in "sensors" array have been calibrated.
+	Postcondition: Writes binary state of the nth sensor in "sensor" array
+	to the nth bit of "sensorBinary" and returns it.
+*/
+
+uint8_t readSensorsBinary(Sensor* sensors, uint8_t numSensors) {
+	uint8_t sensorBinary = B00000000;
+	for(uint8_t i = 0; i < numSensors; i++) 
+		bitWrite(sensorBinary, i, sensors[i].getBit());
+
+	return sensorBinary;
+}
+
+uint16_t readSensorsAnalog(Sensor* sensors, uint8_t numSensors) {
+	uint16_t sensorAnalog = 0;
+	for(uint8_t i = 0; i < numSensors; i++)
+		sensorAnalog += sensors[i].read();
+
+	return sensorAnalog;
 }

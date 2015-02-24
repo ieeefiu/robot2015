@@ -7,7 +7,7 @@ const uint8_t emitterPin = 12;
 const uint8_t ledPin = 13;
 
 const uint8_t numSensors = 7;
-const uint8_t sensorPins[numSensors] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+const uint8_t sensorPins[numSensors] = {0, 1, 2, 3, 4, 5, 6};
 
 Sensor sensors[numSensors];
 uint8_t sensorBinary = B00000000;
@@ -48,5 +48,4 @@ void setup() {
 void loop() {
 	lineFollower(servos, sensors, numSensors);
 }
-
 
