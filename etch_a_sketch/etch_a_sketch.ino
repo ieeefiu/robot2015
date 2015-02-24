@@ -12,12 +12,12 @@ void setup()
 void loop()
 {
     // test out the etch-a-sketch class
-    // etch.forward(10);
+    etch.forward(10);
     delay(1000);
-    /* etch.backward(10); */
-    /* delay(1000); */
-    /* etch.up(10); */
-    /* delay(1000); */
-    /* etch.down(10); */
-    /* delay(1000); */
+    etch.backward(10);
+    delay(1000);
+    etch.up(10);
+    delay(1000);
+    etch.down(10);
+    delay(1000);
 }
