@@ -9,12 +9,12 @@
 
 #define CLOCKWISE 180
 #define COUNTER_CLOCKWISE 0
-#define STOP 100
+#define STOP 1500
 // i don't know what this should be for the servo i'm using yet
 // please adjust this!
 // this value will be multiplied by a variable to provide a delay
 // that will keep the servo running for whatever distance
-#define DELAYCONSTANT 5
+#define DELAYCONSTANT 500
 
 class EtchASketch
 {
