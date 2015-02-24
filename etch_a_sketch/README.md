@@ -28,4 +28,10 @@ EtchASketch has four fields:
 - y position
 
 Public methods:
-- forward, backward, up, down: moves the cursor in whatever direction. measured in mm. **TODO** add a check to see if the cursor is going to move out of bounds
+- forward, backward, up, down: moves the cursor in whatever direction. measured in mm.
+
+to-do list
+----------
+
+- add a check to see if the cursor is going to move out of bounds
+- get some servos that aren't made of garbage
