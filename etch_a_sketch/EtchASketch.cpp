@@ -13,8 +13,8 @@ EtchASketch::EtchASketch(int a, int b, int x, int y)
     // set servos to whatever value works for not moving
     // it's supposed to be 90 but i'm using cheap servos
     // please adjust this to whatever your servos are happy with
-    left_knob.write(STOP);
-    right_knob.write(STOP);
+    left_knob.writeMicroseconds(STOP);
+    right_knob.writeMicroseconds(STOP);
 }
 
 void EtchASketch::moveForward(int a)
@@ -25,7 +25,7 @@ void EtchASketch::moveForward(int a)
     int t = DELAYCONSTANT * a;
     delay(t);
     // stop the left knob
-    left_knob.write(STOP);
+    left_knob.writeMicroseconds(STOP);
 }
 
 void EtchASketch::moveBackward(int a)
@@ -36,7 +36,7 @@ void EtchASketch::moveBackward(int a)
     int t = DELAYCONSTANT * a;
     delay(t);
     // stop the left knob
-    left_knob.write(STOP);
+    left_knob.writeMicroseconds(STOP);
 }
 
 void EtchASketch::moveUp(int a)
@@ -47,7 +47,7 @@ void EtchASketch::moveUp(int a)
     int t = DELAYCONSTANT * a;
     delay(t);
     // stop the right knob
-    right_knob.write(STOP);
+    right_knob.writeMicroseconds(STOP);
 }
 
 void EtchASketch::moveDown(int a)
@@ -58,7 +58,7 @@ void EtchASketch::moveDown(int a)
     int t = DELAYCONSTANT * a;
     delay(t);
     // stop the right knob
-    right_knob.write(STOP);
+    right_knob.writeMicroseconds(STOP);
 }
 
 int EtchASketch::getX()
