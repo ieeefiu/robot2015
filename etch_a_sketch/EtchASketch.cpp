@@ -2,11 +2,14 @@
 #include <Servo.h>
 #include "EtchASketch.h"
 
-EtchASketch::EtchASketch(int a, int b)
+EtchASketch::EtchASketch(int a, int b, int x, int y)
 {
     // set pin values for servos
     left_knob.attach(a);
     right_knob.attach(b);
+    // set initial position
+    position[0] = x;
+    position[1] = y;
     // set servos to whatever value works for not moving
     // it's supposed to be 90 but i'm using cheap servos
     // please adjust this to whatever your servos are happy with
