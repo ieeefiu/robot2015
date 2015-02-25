@@ -15,8 +15,10 @@ some notes
 ----------
 
 - knobs are continuous motion servos
-- the constants in EtchASketch.h are defined for the servos i have at home, which are [these](http://www.amazon.com/gp/product/B00KA393PK/ref=oh_aui_detailpage_o00_s00) modified to be continuous motion. they're cheap so it's not working like i want it to
+- the constants in Etch.h work well with the AR-3606HB servos
+- delay constant is currently arbitrary, will need to test on an etch-a-sketch soon
 - before using this, test and modify the constants to work properly with whatever servos you are actually using
+- open the serial monitor and make sure the servos are doing the right thing at the right time
 
 how do i
 --------
@@ -28,11 +30,15 @@ EtchASketch has four fields:
 - y position
 
 Public methods:
-- forward, backward, up, down: moves the cursor in whatever direction. measured in mm.
+- Etch: empty constructor
+- Etch with arguments: constructor that sets pins and initial position
+- forward, backward, up, down: moves the cursor in whatever direction. measured in mm. will eventually check position and not work if the thing is going to go out of bounds
+- stop: stops both knobs
 
 to-do list
 ----------
 
+- add methods to set and get current position
+- figure out what to set the DELAY constant to so the argument moves the thing in mm
 - add a check to see if the cursor is going to move out of bounds
-- get some servos that aren't made of garbage
 - actually make this thing work on an etch-a-sketch

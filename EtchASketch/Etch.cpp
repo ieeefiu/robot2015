@@ -14,26 +14,11 @@ Etch::Etch(int a, int b, uint8_t x, uint8_t y)
     right_knob = new Servo();
     left_knob->attach(a);
     right_knob->attach(b);
+    stop();
     // set initial position
     pos_x = x;
     pos_y = y;
-    // set servos to whatever value works for not moving
-    // it's supposed to be 90 but i'm using cheap servos
-    // please adjust this to whatever your servos are happy with
     Serial.println("Etch init");
-}
-
-void Etch::attach(int a, int b)
-{
-    left_knob->attach(a);
-    right_knob->attach(b);
-    stop();
-}
-
-void Etch::setPosition(uint8_t a, uint8_t b)
-{
-    pos_x = a;
-    pos_y = b;
 }
 
 void Etch::moveForward(uint8_t a)
@@ -42,7 +27,7 @@ void Etch::moveForward(uint8_t a)
     left_knob->writeMicroseconds(CLOCKWISE);
     Serial.println("Left knob CLOCKWISE");
     Serial.println(left_knob->read());
-    // let the thing move forward for whatever unit delay() takes
+    // let the thing move for whatever unit delay() takes
     delay(DELAY * a);
     // stop the left knob
     left_knob->writeMicroseconds(STOP);
@@ -56,7 +41,7 @@ void Etch::moveBackward(uint8_t a)
     left_knob->writeMicroseconds(COUNTER_CLOCKWISE);
     Serial.println("Left knob COUNTER_CLOCKWISE");
     Serial.println(left_knob->read());
-    // let the thing move forward for whatever unit delay() takes
+    // let the thing move for whatever unit delay() takes
     delay(DELAY * a);
     // stop the left knob
     left_knob->writeMicroseconds(STOP);
@@ -70,7 +55,7 @@ void Etch::moveUp(uint8_t a)
     right_knob->writeMicroseconds(CLOCKWISE);
     Serial.println("Right knob CLOCKWISE");
     Serial.println(right_knob->read());
-    // let the thing move forward for whatever unit delay() takes
+    // let the thing move for whatever unit delay() takes
     delay(DELAY * a);
     // stop the right knob
     right_knob->writeMicroseconds(STOP);
@@ -84,7 +69,7 @@ void Etch::moveDown(uint8_t a)
     right_knob->writeMicroseconds(COUNTER_CLOCKWISE);
     Serial.println("Right knob COUNTER_CLOCKWISE");
     Serial.println(right_knob->read());
-    // let the thing move forward for whatever unit delay() takes
+    // let the thing move for whatever unit delay() takes
     delay(DELAY * a);
     // stop the left knob
     right_knob->writeMicroseconds(STOP);

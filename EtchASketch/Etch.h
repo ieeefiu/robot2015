@@ -9,13 +9,12 @@ class Etch
 private:
     // constants for moving clockwise, counter-clockwise, and stop
     // will need to adjust for whatever your servo is
-    // i don't know what this should be for the servo i'm using yet
-    // please adjust this!
-    // this value will be multiplied by a variable to provide a delay
-    // that will keep the servo running for whatever distance
+    // please adjust these!
     static const uint16_t CLOCKWISE = 1000;
     static const uint16_t COUNTER_CLOCKWISE = 2000;
     static const uint16_t STOP = 1500;
+    // this value will be multiplied by a variable to provide a delay
+    // so the thing moves in mm (or at least that's my goal)
     static const uint16_t DELAY = 100;
     Servo* left_knob;
     Servo* right_knob;
@@ -30,8 +29,6 @@ private:
 public:
     Etch();
     Etch(int,int,uint8_t,uint8_t);
-    void attach(int,int);
-    void setPosition(uint8_t,uint8_t);
     void forward(uint8_t);
     void backward(uint8_t);
     void up(uint8_t);
