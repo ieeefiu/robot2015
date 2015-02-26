@@ -24,8 +24,8 @@ Etch::Etch(int a, int b, uint8_t x, uint8_t y)
 void Etch::moveForward(uint8_t a)
 {
     // tell left knob to move forward
-    left_knob->writeMicroseconds(CLOCKWISE);
-    Serial.println("Left knob CLOCKWISE");
+    left_knob->writeMicroseconds(COUNTER_CLOCKWISE);
+    Serial.println("Left knob COUNTER_CLOCKWISE");
     Serial.println(left_knob->read());
     // let the thing move for whatever unit delay() takes
     delay(DELAY * a);
@@ -38,8 +38,8 @@ void Etch::moveForward(uint8_t a)
 void Etch::moveBackward(uint8_t a)
 {
     // tell left knob to move backward
-    left_knob->writeMicroseconds(COUNTER_CLOCKWISE);
-    Serial.println("Left knob COUNTER_CLOCKWISE");
+    left_knob->writeMicroseconds(CLOCKWISE);
+    Serial.println("Left knob CLOCKWISE");
     Serial.println(left_knob->read());
     // let the thing move for whatever unit delay() takes
     delay(DELAY * a);
@@ -52,8 +52,8 @@ void Etch::moveBackward(uint8_t a)
 void Etch::moveUp(uint8_t a)
 {
     // tell right knob to move up
-    right_knob->writeMicroseconds(CLOCKWISE);
-    Serial.println("Right knob CLOCKWISE");
+    right_knob->writeMicroseconds(COUNTER_CLOCKWISE);
+    Serial.println("Right knob COUNTER_CLOCKWISE");
     Serial.println(right_knob->read());
     // let the thing move for whatever unit delay() takes
     delay(DELAY * a);
@@ -66,8 +66,8 @@ void Etch::moveUp(uint8_t a)
 void Etch::moveDown(uint8_t a)
 {
     // tell right knob to move backward
-    right_knob->writeMicroseconds(COUNTER_CLOCKWISE);
-    Serial.println("Right knob COUNTER_CLOCKWISE");
+    right_knob->writeMicroseconds(CLOCKWISE);
+    Serial.println("Right knob CLOCKWISE");
     Serial.println(right_knob->read());
     // let the thing move for whatever unit delay() takes
     delay(DELAY * a);

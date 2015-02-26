@@ -16,15 +16,45 @@ void setup()
 void loop()
 {
     // test out the etch-a-sketch class
-    etch->forward(10);
-    delay(1000);
-    etch->backward(10);
-    delay(1000);
-    etch->up(10);
-    delay(1000);
-    etch->down(10);
-    delay(1000);
-    // test the stop method
-    etch->stop();
-    delay(1000);
+    delay(5000);
+    // start I
+    etch->forward(6);
+    delay(500);
+    etch->backward(3);
+    delay(500);
+    etch->down(6);
+    delay(500);
+    etch->backward(3);
+    delay(500);
+    etch->forward(9);
+    // start e1
+    delay(500);
+    etch->up(3);
+    delay(500);
+    etch->backward(3);
+    delay(500);
+    etch->down(9);
+    delay(500);
+    // start e2
+    etch->forward(6);
+    delay(500);
+    etch->up(3);
+    delay(500);
+    etch->backward(3);
+    delay(500);
+    etch->down(9);
+    delay(500);
+    // start e3
+    etch->forward(6);
+    delay(500);
+    etch->up(3);
+    delay(500);
+    etch->backward(3);
+    delay(500);
+    etch->down(9);
+    delay(500);
+    etch->forward(3);
+    delay(500);
+    etch->up(3);
+    delay(5000);
 }
