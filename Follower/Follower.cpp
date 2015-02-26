@@ -1,3 +1,5 @@
+#include "Follower.h"
+
 uint8_t lineFollower(Servo* servos, Sensor* sensors, uint8_t numSensors) {
 	uint8_t sensorBinary = readSensorsBinary(sensors, numSensors);
 	switch(sensorBinary) { 
