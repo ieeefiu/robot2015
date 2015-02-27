@@ -1,30 +1,30 @@
+#include "Follower.h"
+#include <stdint.h>
+
 uint8_t lineFollower(Servo* servos, Sensor* sensors, uint8_t numSensors) {
+	Directions direction;
+
 	uint8_t sensorBinary = readSensorsBinary(sensors, numSensors);
+
 	switch(sensorBinary) { 
 
 		// left junction
 		case B01111100: {
+			direction = left;
 			while(!readSensorsBinary(sensors, numSensors) != B01111111)
-				setServos(servos, left, 0);
+				setServos(servos, direction, 0);
 			break;
 		}
 		// right junction
 		case B01111110: {
+			direction = right;
 			while(!readSensorsBinary(sensors, numSensors) != B01111111)
-				setServos(servos, right, 0);
+				setServos(servos, direction, 0);
 			break;
 		}
-		// straight line
-		case B01001100: 
-		case B01011110:
-	
-		// left turn
-		case B00111100:
-		case B00111110:
-
-		// right turn
-		case B00001111:
-		case B00011111: {
+		
+		// follow line
+		default: {
 			float Kp = 0.5, Kd = 1;
 			uint16_t lastError = 0;
 			uint16_t thisError = 0;
@@ -40,15 +40,14 @@ uint8_t lineFollower(Servo* servos, Sensor* sensors, uint8_t numSensors) {
 			delta = Kp * thisError + Kd * (thisError - lastError);
 			lastError = thisError;				
 			
-			setServos(servos, straight, delta);
+			direction = straight;
+			setServos(servos, direction, delta);
 			break;
-		}
-		default:
-			break;			
+		}		
 	}
 }
 
-uint16_t setServos(Servo* servos, uint8_t direction, uint16_t delta) {
+uint16_t setServos(Servo* servos, Directions direction, uint16_t delta) {
 	switch(direction) {
 		case left: {
 			servos[right].write(10);	
@@ -66,6 +65,8 @@ uint16_t setServos(Servo* servos, uint8_t direction, uint16_t delta) {
 			break;
 		}
 		default:
+			servos[right].write(45 - delta);
+			servos[left].write(135 - delta);
 			break;
 	}
 }

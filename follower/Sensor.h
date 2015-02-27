@@ -22,17 +22,13 @@ class Sensor {
 private:
 	uint16_t threshold;		
 	uint16_t val;
-
 	uint8_t pin;
-	uint8_t emitterPin;
 
 public:
 	Sensor();
 	Sensor(uint8_t);
-	Sensor(uint8_t, uint8_t);
 
 	uint8_t attach(uint8_t);	
-	uint8_t attach(uint8_t, uint8_t);
 	uint8_t detach();
 
 	uint8_t calibrate();

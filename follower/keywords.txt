@@ -1,0 +1,13 @@
+Sensor	KEYWORD1
+attach	KEYWORD2
+detach	KEYWORD2
+calibrate	KEYWORD2
+read	KEYWORD2
+getBit	KEYWORD2
+getThreshold	KEYWORD2
+getVal	KEYWORD2
+Directions	KEYWORD 1
+readSensorsBinary	KEYWORD2
+readSensorsAnalog	KEYWORD2
+setServos	KEYWORD2
+lineFollower	KEYWORD2
