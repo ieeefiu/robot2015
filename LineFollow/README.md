@@ -9,20 +9,20 @@
 ## Methods
 
 ### `readSensorsBinary()`
-* `readSensorsBinary(sensors, numSensors)`
 Returns 8 (`uint8_t`) bit representation of `sensors`
+* `readSensorsBinary(sensors, numSensors)`
 
 ### `readSensorsAnalog()`
-* `readSensorsAnalog(sensors, numSensors)`
 Returns the sum of analog values in `sensors`
+* `readSensorsAnalog(sensors, numSensors)`
 
 ### `setServos()`
-* `setServos(servos, direction, offset)`
 Sets the speed and `direction` of `servos` with PD offset.
+* `setServos(servos, direction, offset)`
 
 ### `lineFollower()`
-* `lineFollower(servos, sensors, numSensors)`
 Main line follower function called by robot
+* `lineFollower(servos, sensors, numSensors)`
 
 # Sensor
 
@@ -42,7 +42,8 @@ Analog pin on Arduino that sensor is mapped to.
 
 ## Methods
 
-### Sensor() *Constructor*
+### Sensor() 
+Constructor
 * `Sensor()`
 * `Sensor(pin)`
 
@@ -52,18 +53,24 @@ Associates sensors pin with Arduino pin.
 
 ### `detach()`
 Unlinks sensor from arduino pin.
+* `detach()`
 
 ### `calibrate()`
 Sensors threshold value is calculated to adjust for ambient noise.
+* `calibrate()`
 
 ### `read()`
 Uses `analogRead()` to get sensor values, returns `val` of type `uint16_t`.
+* `read()`
 
 ### `getBit()`
 If `val` read is above `threshold` returns 1, else 0 of type `uint8_t`.
+* `getBit()`
 
 ### `getThreshold()`
 Returns `uint16_t threshold`
+* `getThreshold()`
 
 ### `getVal()`
 Returns `uint16_t val`
+* `getVal()`
