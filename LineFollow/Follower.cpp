@@ -24,9 +24,6 @@ uint8_t lineFollower(Servo* servos, Sensor* sensors,
 	int16_t rightSpeed; 
 
 	leftSpeed = (45 - delta) < 0? 0 : (45 - delta);
-	leftSpeed = (45 - delta) > 90? 90 : (45 - delta);
-
-	rightSpeed = (135 - delta) < 90? 90 : (135 - delta);
 	rightSpeed = (135 - delta) > 180? 180 : (135 - delta);
 
 	servos[right].write(rightSpeed);
