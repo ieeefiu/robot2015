@@ -1,51 +1,40 @@
 #include "Follower.h"
 #include <stdint.h>
 
-uint8_t lineFollower(Servo* servos, Sensor* sensors, uint8_t numSensors) {
-	Directions direction;
+uint8_t lineFollower(Servo* servos, Sensor* sensors, 
+	uint8_t numSensors) {
 
-	uint8_t sensorBinary = readSensorsBinary(sensors, numSensors);
+	// follow line
+	float Kp = 0.5, Kd = 0.5;
+	int16_t lastError = 0;
+	int16_t thisError = 0;
+	int16_t delta = 0;
+	
+	// read sensors on right half of array				
+	uint16_t rightAnalog = readSensorsAnalog(sensors, (uint8_t) (numSensors / 2));
+	
+	// read sensors on left half of array
+	uint16_t leftAnalog = readSensorsAnalog(sensors + (uint8_t) (numSensors / 2), (uint8_t) (numSensors / 2));
+	
+	thisError = leftAnalog - rightAnalog;
+	delta = Kp * thisError + Kd * (thisError - lastError);
+	lastError = thisError;				
+	
+	int16_t leftSpeed; 
+	int16_t rightSpeed; 
 
-	switch(sensorBinary) { 
+	leftSpeed = (45 - delta) < 0? 0 : (45 - delta);
+	leftSpeed = (45 - delta) > 90? 90 : (45 - delta);
 
-		// left junction
-		case B01111100: {
-			direction = left;
-			while(!readSensorsBinary(sensors, numSensors) != B01111111)
-				setServos(servos, direction, 0);
-			break;
-		}
-		// right junction
-		case B01111110: {
-			direction = right;
-			while(!readSensorsBinary(sensors, numSensors) != B01111111)
-				setServos(servos, direction, 0);
-			break;
-		}
-		
-		// follow line
-		default: {
-			float Kp = 0.5, Kd = 1;
-			uint16_t lastError = 0;
-			uint16_t thisError = 0;
-			uint16_t delta = 0;
-			
-			// read sensors on right half of array				
-			uint16_t rightAnalog = readSensorsAnalog(sensors, (uint8_t) (numSensors / 2));
-			
-			// read sensors on left half of array
-			uint16_t leftAnalog = readSensorsAnalog(sensors + (uint8_t) (numSensors / 2), (uint8_t) (numSensors / 2));
-			
-			thisError = leftAnalog - rightAnalog;
-			delta = Kp * thisError + Kd * (thisError - lastError);
-			lastError = thisError;				
-			
-			direction = straight;
-			setServos(servos, direction, delta);
-			break;
-		}		
-	}
+	rightSpeed = (135 - delta) < 90? 90 : (135 - delta);
+	rightSpeed = (135 - delta) > 180? 180 : (135 - delta);
+
+	servos[right].write(rightSpeed);
+	servos[left].write(leftSpeed);
+
 }
+
+/*
 
 uint16_t setServos(Servo* servos, Directions direction, uint16_t delta) {
 	switch(direction) {
@@ -97,3 +86,21 @@ uint16_t readSensorsAnalog(Sensor* sensors, uint8_t numSensors) {
 
 	return sensorAnalog;
 }
+
+/*	switch(sensorBinary) { 
+
+		// left junction
+		case B01111100: {
+			direction = left;
+			while(!readSensorsBinary(sensors, numSensors) != B01111111)
+				setServos(servos, direction, 0);
+			break;
+		}
+		// right junction
+		case B01111110: {
+			direction = right;
+			while(!readSensorsBinary(sensors, numSensors) != B01111111)
+				setServos(servos, direction, 0);
+			break;
+		}
+*/		
