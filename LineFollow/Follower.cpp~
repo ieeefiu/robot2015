@@ -20,7 +20,7 @@ uint8_t lineFollower(Servo* servos, Sensor* sensors,
 	leftAnalog /= 512;
 	
 	thisError = leftAnalog - rightAnalog;
-	delta = Kp * thisError; //+ Kd * (thisError - lastError);
+	delta = Kp * thisError + Kd * (thisError - lastError);
 	lastError = thisError;				
 	
 	int16_t leftSpeed; 

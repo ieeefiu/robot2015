@@ -11,8 +11,7 @@ uint8_t readSensorsBinary(Sensor*, uint8_t);
 uint16_t readSensorsAnalog(Sensor*, uint8_t);
 
 bool lineFollower(Servo*, Sensor*, uint8_t);
-bool exitBoundary(Servo*, Sensor*, uint8_t);
-bool enterBoundary(Servo*, Sensor*, uint8_t);
-bool junctionTurn(Servo*, Sensor*, uint8_t);
-
+bool exitBoundary();
+bool enterBoundary();
+bool junctionTurn();
 #endif
